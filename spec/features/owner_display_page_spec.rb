@@ -19,6 +19,9 @@ feature "User creates an dog profile", %q{
       expect(page).to have_content("snipes@gmail.com")
       expect(page).to have_content dog1.last_name
       expect(page).to have_content dog2.first_name
+      expect(page).to have_content dog2.full_name
+      expect(page).to have_content dog1.full_name
+
     end
 
 
@@ -33,7 +36,10 @@ feature "User creates an dog profile", %q{
     expect { click_link 'Destroy'  }.to change(Owner, :count).by(-1)
   end
 
-  it " " do
+  it "has an owners full name" do
+    dog3 = Owner.create!(first_name: "Bruce", last_name: "theCrusher", dog_name: "Killer", email: "snipes@gmail.com")
+    visit '/owners'
+    expect(page).to have_content dog3.full_name
   end
 
 end

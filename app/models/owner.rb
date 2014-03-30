@@ -5,7 +5,12 @@ class Owner < ActiveRecord::Base
   validates :email, presence: true
 
   def full_name
-    owner.first_name + " " + owner.last_name
+    #owner = Owner.find(params[:id])
+    #Owner.first_name #+ " " + owner.last_name
+   # Owner.find(params[:id])
+    #Owner.first_name
+    #Owner.find(params[:id])
+    self.first_name + " " + self.last_name
   end
 
 end

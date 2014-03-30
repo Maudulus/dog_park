@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Full Name</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Dog Name</th>
@@ -13,6 +14,7 @@
   <tbody>
     <% @owners.each do |owner| %>
     <tr>
+      <td><%= owner.full_name %></td>
       <td><%= owner.first_name %></td>
       <td><%= owner.last_name %></td>
       <td><%= owner.dog_name %></td>
